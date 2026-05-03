@@ -1,0 +1,62 @@
+body {
+    background-color: #1a1a1a;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.game-wrapper {
+    text-align: center;
+}
+
+#game-board {
+    display: flex;
+    flex-direction: column-reverse; /* لنجعل اللعب يبدأ من الأسفل للأعلى */
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid #333;
+}
+
+.bulb {
+    width: 40px;
+    height: 60px;
+    background: #333;
+    border-radius: 50% 50% 40% 40%;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid #000;
+}
+
+.bulb.active { border: 2px solid #fff; }
+
+/* تأثير الإضاءة عند الفوز */
+.bulb.on {
+    background: #ffea00;
+    box-shadow: 0 0 20px #ffea00, 0 0 40px #ffea00;
+}
+
+/* تأثير الانكسار عند الخسارة */
+.bulb.broken {
+    background: #555;
+    position: relative;
+    border: 2px solid #f00;
+}
+
+.bulb.broken::after {
+    content: "✖";
+    color: red;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
